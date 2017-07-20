@@ -1,0 +1,73 @@
+//  float R = 0;
+//  float G = 0;
+//  float B = 0;
+//
+//  float red = 0;
+//  float green = 0;
+//  float blue = 0;
+//
+//  float M = 0;
+//
+//  float white = 0;
+//  float black = 0;
+//
+//  float brightness = 0;
+//
+//  //Transform the 2 bytes of data (VH and VL) from each pixel to 3 bytes of data.
+//  //Used for RGB values and analysis of the photo.
+//  //
+//  //   VH       VL
+//  //RRRRRGGG|GGGBBBBB
+//  
+//  for (i = 0; i < width; i++) {
+//    for (j = 0; j < height; j++) {
+//      VH = myCAM.read_fifo();
+//      VL = myCAM.read_fifo();
+//
+//      red = (float)((byte)VH/8)/31;
+//      green = ((float)(((byte)VH & 0x07)*8 + ((byte)VL/32))/63);
+//      blue = (float)((byte)VL & 0x1F)/31;
+//
+//
+//      R += red;
+//      G += green;
+//      B += blue;
+//      
+//      //Serial.println(red);
+//      //Serial.println(green);
+//      //Serial.println(blue);
+//
+//
+//      brightness = (float)(VH & 0x00FF)/256;
+//
+//      M += brightness;
+//
+//      if (brightness > 0.56) {
+//        white++;
+//      } else {
+//        black++;
+//      }
+//
+//
+//  Serial.println("Stats For Nerds: \n");
+//
+//  float total = R + G + B;
+//
+//  Serial.print(R*100/total);
+//  Serial.println("% Red");
+//  
+//  Serial.print(G*100/total);
+//  Serial.println("% Green");
+//  
+//  Serial.print(B*100/total);
+//  Serial.println("% Blue \n");
+//  
+//  Serial.print("Average Brightness: ");
+//  Serial.print(total/3000);
+//  Serial.println("% \n");
+//  
+//  Serial.print(white*100/(w*h));
+//  Serial.println("% Transmission");
+//  
+//  Serial.print(black*100/(w*h));
+//  Serial.println("% Soiling \n \n \n \n \n");
